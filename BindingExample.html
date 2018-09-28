@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <title>BindingExample.html</title>
+    <script src="js/vue.js"></script>
+
+  </head>
+  <body>
+    <style>
+      div.hasErrors {
+        color: red;
+      }
+
+    #workers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    #workers td, #workers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #workers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #workers tr:hover {background-color: #ddd;}
+
+    #workers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    </style>
+    <div id="binding_example">
+      <h3>BindingExample</h3>
+      <!-- some hrefs -->
+      <div v-if="showHrefs">
+        <h3>Some hrefs</h3>
+        <p v-for="href in hrefs">
+          <a v-bind:href="href.value">{{href.name}}</a>
+        </p>
+      </div>
+      <!--id -->
+      <div v-bind:class="{hasErrors:idHasErrors}">
+          id: <input type="text" v-model="id" v-on:keyUp="checkInputIdValue()" />
+          <span v-if="idHasErrors">{{idErrorMsg}}</span>
+      </div>
+      <!--name -->
+      <div v-bind:class="{hasErrors:nameHasErrors}">
+        name: <input type="text" v-model="name" v-on:keyUp="checkInputNameValue()" />
+        <span v-if="nameHasErrors">{{nameErrorMsg}}</span>
+      </div>
+      <!-- age -->
+      <div v-bind:class="{hasErrors:ageHasErrors}">
+        age: <input type="text" v-model="age" v-on:keyUp="checkInputAgeValue()" />
+        <span v-if="ageHasErrors">{{ageErrorMsg}}</span>
+      </div>
+      <!-- wage -->
+      <div v-bind:class="{hasErrors:wageHasErrors}">
+        wage: <input type="text" v-model="wage" v-on:keyUp="checkInputWageValue()" />
+        <span v-if="wageHasErrors">{{wageErrorMsg}}</span>
+      </div>
+      <!--active -->
+      <div v-bind:class="{hasErrors:activeHasErrors}">
+        active: <input type="text" v-model="active" v-on:keyUp="checkInputActiveValue()" />
+        <span v-if="activeHasErrors">{{activeErrorMsg}}</span>
+      </div>
+      <!-- button -->
+      <button v-on:click="addNewWorker()">add new worker</button>
+    <div v-if="isWorkersArrayNotEmpty">
+      <h3>Saved Workers</h3>
+      <table id="workers">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Wage</th>
+          <th>Active</th>
+        </tr>
+        <tr v-for="worker in workers">
+          <td>{{ worker.id }} </td>
+          <td>{{ worker.name }} </td>
+          <td>{{ worker.age }} </td>
+          <td>{{ worker.wage }} </td>
+          <td>{{ worker.active }} </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+    <script src="js/BindingExample.js"></script>
+  </body>
+</html>

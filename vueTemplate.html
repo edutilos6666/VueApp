@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>vueTemplate.html</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="personTemplate">
+      <h3>vueTemplate properties</h3>
+      <b>id = </b> {{ id }} <br/>
+      <b>name = </b> {{ name }} <br/>
+      <b>age = </b> {{ age }} <br/>
+      <b>wage = </b> {{ wage }} <br/>
+      <b>active = </b> {{ active }} <br/>
+      <div v-html="htmlcontent"></div>
+      <img v-bind:src="imgsrc" width="300" height="300" />
+    </div>
+    <script src="js/vueTemplate.js"></script>
+  </body>
+</html>
