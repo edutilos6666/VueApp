@@ -36,9 +36,29 @@
     </style>
     <div id="binding_example">
       <h3>BindingExample</h3>
+      <!-- some other bindings -->
+      <div>
+        <h3 v-bind:style="styleObj">Some Other Bindings </h3>
+        <input type="checkbox" v-model="checkboxBindingValue">{{checkboxBindingValue}} <br/><br>
+        <input type="radio" value="reading" v-model="radiobuttonBindingValue"> reading <br/>
+        <input type="radio" value="writing" v-model="radiobuttonBindingValue"> writing <br/>
+        <input type="radio" value="speaking" v-model="radiobuttonBindingValue"> speaking <br/>
+        <input type="radio" value="listening" v-model="radiobuttonBindingValue"> listening <br/> <br>
+        <select v-model="selectBindingValue">
+          <option value="" disabled>Please select one language</option>
+          <option>Java</option>
+          <option>JS</option>
+          <option>Emberjs</option>
+          <option>Reactjs</option>
+          <option>Vuejs</option>
+          <option>Angular</option>
+        </select>
+        <br>
+        <button v-on:click="printCheckboxRadionSelectValues()">printCheckboxRadionSelectValues</button>
+      </div>
       <!-- some hrefs -->
       <div v-if="showHrefs">
-        <h3>Some hrefs</h3>
+        <h3 v-bind:style="styleObj">Some hrefs</h3>
         <p v-for="href in hrefs">
           <a v-bind:href="href.value">{{href.name}}</a>
         </p>

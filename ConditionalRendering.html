@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>ConditionalRendering.html</title>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="conditional_rendering">
+      <h3>ConditionalRendering Properties</h3>
+      <button v-on:click="showId()">show id</button> <br>
+      <button v-on:click="showName()">show name</button> <br>
+      <button v-on:click="showAge()">show age</button> <br>
+      <button v-on:click="showWage()">show wage</button> <br>
+      <button v-on:click="showActive()">show active</button> <br>
+      <h3 v-if="isShowId">
+        Id = {{id}}
+      </h3>
+      <h3 v-else>
+        Id is not allowed to be shown.
+      </h3>
+
+      <h3 v-if="isShowName">
+        Name = {{name}}
+      </h3>
+      <h3 v-else>
+        Name is not allowed to be shown.
+      </h3>
+
+      <h3 v-if="isShowAge">
+        Age = {{age}}
+      </h3>
+      <h3 v-else>
+        Age is not allowed to be shown.
+      </h3>
+
+
+      <h3 v-if="isShowWage">
+        Wage = {{wage}}
+      </h3>
+      <h3 v-else>
+        Wage is not allowed to be shown.
+      </h3>
+
+      <h3 v-if="isShowActive">
+        Active = {{active}}
+      </h3>
+      <h3 v-else>
+        Active is not allowed to be shown.
+      </h3>
+
+      <br>
+      NewName: <input type="text" v-on:keyup.enter="addNewName"> <br>
+      <ul v-show="names.length > 0">
+        <li v-for="name in names">
+          {{name}}
+        </li>
+      </ul>
+      <br>
+      <ul v-show="names.length > 0">
+        <li v-for="(name,index) in names">
+          {{index}} => {{name}}
+        </li>
+      </ul>
+    </div>
+    <script src="js/ConditionalRendering.js"></script>
+  </body>
+</html>

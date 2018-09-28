@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>EventExample.html</title>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="event_example">
+      <button
+      v-on:keydown ="onkeydown()"
+      v-on:keypress ="onkeypress()"
+      v-on:keyup ="onkeyup()"
+      v-on:mouseenter ="onmouseenter()"
+      v-on:mouseover ="onmouseover()"
+      v-on:mousemove ="onmousemove()"
+      v-on:mousedown ="onmousedown()"
+      v-on:mouseup ="onmouseup()"
+      v-on:auxclick ="onauxclick()"
+      v-on:click ="onclick()"
+      v-on:dblclick ="ondblclick()"
+      v-on:wheel ="onwheel()"
+      v-on:mouseleave ="onmouseleave()"
+      v-on:mouseout ="onmouseout()">button with events
+      </button>
+    </div>
+    <script src="js/EventExample.js"></script>
+  </body>
+</html>

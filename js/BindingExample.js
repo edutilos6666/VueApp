@@ -19,6 +19,14 @@ const ret = new Vue({
     activeErrorMsg: null,
     showHrefs: true,
     hrefs: null,
+    styleObj: {
+      color: "red",
+      backgroundColor: "blue",
+      fontSize: "30px"
+    },
+    checkboxBindingValue: false,
+    radiobuttonBindingValue: "reading",
+    selectBindingValue: "Emberjs"
   },
   created: function() {
     this.hrefs =  [
@@ -35,6 +43,11 @@ const ret = new Vue({
     }
   },
   methods: {
+    printCheckboxRadionSelectValues: function() {
+      console.log("checkboxBindingValue = ", this.checkboxBindingValue);
+      console.log("radiobuttonBindingValue = ", this.radiobuttonBindingValue);
+      console.log("selectBindingValue = ", this.selectBindingValue);
+    },
     addNewWorker: function() {
       this.checkInputIdValue();
       this.checkInputNameValue();
