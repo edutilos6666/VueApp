@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>RouterExample.html</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+  </head>
+  <body>
+    <div id="router_example">
+      <h3>Router Example</h3>
+      <ul>
+        <li><router-link to="/heading1">Heading1</router-link></li>
+        <li><router-link to="/heading2">Heading2</router-link></li>
+        <li><router-link to="/heading3">Heading3</router-link></li>
+        <li><router-link to="/heading4">Heading4</router-link></li>
+        <li><router-link to="/heading5">Heading5</router-link></li>
+        <li><router-link to="/heading6">Heading6</router-link></li>
+        <li><router-link to="/heading7/1/foo/10/100.0/true">Heading7 with path params</router-link></li>
+        <li><router-link v-bind:to="{path:'/heading8', query:{id:1,name:'foo',age:10,wage:100.0,active:true}}">Heading1 with queries</router-link></li>
+      </ul>
+      <br><br><br>
+      <router-view></router-view>
+    </div>
+    <script src="js/RouterExample.js"></script>
+  </body>
+</html>

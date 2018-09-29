@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>AnimationExample.html</title>
+    <script src="js/vue.js"></script>
+    <style>
+      .custom-transition-1-enter-active, .custom-transition-1-leave-active {
+        /*transition: opacity 2s;*/
+        transition: all 2s ease-in-out;
+      }
+      .custom-transition-1-enter, .custom-transition-1-leave-to {
+        /*opacity: 0.2;*/
+        /*transform: translateX(100px) translateY(100px);*/
+        transform: rotateX(45deg) rotateY(45deg);
+      }
+      .custom-animation-enter-active {
+        animation:shift-in 2s;
+      }
+      .custom-animation-leave-active {
+        animation:shift-in 2s reverse;
+      }
+      @keyframes shift-in {
+        0% {transform:rotateX(45deg);}
+        25% {transform:rotateX(90deg);}
+        50% {transform:rotateX(135deg);}
+        75% {transform:rotateX(180deg);}
+        100% {transform:rotateX(360deg);}
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js">
+    </script>
+    <div id="animation_example">
+      <button v-on:click="show = !show">Show/Fade div</button>
+      <br>
+      <transition name="custom-transition-1">
+        <div v-show="show" v-bind:style="styleObj"></div>
+      </transition>
+      <transition name="custom-animation">
+        <div v-show="show" v-bind:style="styleObj"></div>
+      </transition>
+      <transition
+       :duration= "{enter: 500, leave:800}"
+       name="custom-classes-transition"
+       enter-active-class="animated swing"
+       leave-active-class="animated bounceIn"
+      >
+      <p v-show="show" v-bind:style="pStyleObj">Hello World</p>
+      </transition>
+
+      <transition
+      v-on:before-enter="beforeEnter"
+      v-on:enter="enter"
+      v-on:leave="leave"
+      v-bind:css="false"
+      >
+        <p v-show="show" v-bind:style="pStyleObj">Bye World</p>
+      </transition>
+
+
+      <transition
+      appear
+      appear-class="custom-appear-class"
+      appear-active-class="animated bounceIn"
+      >
+        <h1>Heading 1</h1>
+      </transition>
+
+      <transition
+      appear
+      appear-class="custom-appear-class"
+      appear-active-class="animated wobble"
+      >
+        <!-- <custom_component></custom_component> -->
+        <component v-bind:is="view"></component>
+      </transition>
+
+    </div>
+    <script src="js/AnimationExample.js"></script>
+  </body>
+</html>

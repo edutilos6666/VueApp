@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>ComponentSlotExample.html</title>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="component_slot_example">
+      <custom_component :elementtype="'h1,red,green,30,el1'">Hello foo</custom_component>
+      <custom_component :elementtype="'p,yellow,blue,20,el2'">Hello bar</custom_component>
+      <custom_component :elementtype="'div,blue,black,40,el3'">Hello bim</custom_component>
+      <custom_component :elementtype="'h3,red,blue,50,el4'">Hello pako</custom_component>
+      <custom_component :elementtype="'span,white,blue,60,el5'">Hello messi</custom_component>
+      <br><br>
+      <slot_component>hello foo</slot_component>
+      <slot_component>hello bar</slot_component>
+      <slot_component>hello bim</slot_component>
+      <slot_component>hello pako</slot_component>
+      <slot_component>hello deko</slot_component>
+    </div>
+    <script src="js/ComponentSlotExample.js"></script>
+  </body>
+</html>

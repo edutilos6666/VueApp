@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>DirectiveExample.html</title>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="directive_example">
+      <p v-changestyle>Hello World</p>
+      <p v-changestyle2="{color:'yellow', fontSize:'40px', backgroundColor:'blue'}">Bye World</p>
+      <input type="text" v-model="name" placeholder="enter a name"><br>
+      <span>name length = {{name | countLetters}}</span> <br>
+    </div>
+    <script src="js/DirectiveExample.js"></script>
+  </body>
+</html>
